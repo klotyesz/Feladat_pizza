@@ -7,14 +7,19 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <StackPanel Margin="0,0,626,217">
+        <Label Content="Tészta vastagsága" HorizontalAlignment="Left" Margin="87,47,0,0" VerticalAlignment="Top" Width="174"/>
+        <Label Content="Pizza mérete" HorizontalAlignment="Left" Margin="273,42,0,0" VerticalAlignment="Top" Width="174"/>
+        <Label Content="Feltétek" HorizontalAlignment="Left" Margin="452,37,0,0" VerticalAlignment="Top" Width="129"/>
+        <Label Content="Átvételi mód" HorizontalAlignment="Left" Margin="586,37,0,0" VerticalAlignment="Top" Width="174"/>
+
+        <StackPanel Margin="87,104,539,113">
             <ListBox x:Name="lb_pizzateszta" SelectionMode="Single" Margin="10,0,0,0" FontSize="16" SelectionChanged="lb_pizzateszta_SelectionChanged">
                 <ListBoxItem Content="Vékony"/>
                 <ListBoxItem Content="Normál"/>
                 <ListBoxItem Content="Extra vastag"/>
             </ListBox>
         </StackPanel>
-        <StackPanel Margin="179,0,447,217">
+        <StackPanel Margin="266,104,360,113">
             <ComboBox x:Name="combobox_meret" Width="120" SelectionChanged="combobox_meret_SelectionChanged">
                 <ComboBoxItem Content="Kicsi"/>
                 <ComboBoxItem Content="Közepes"/>
@@ -22,7 +27,19 @@
             </ComboBox>
 
         </StackPanel>
-        
+        <StackPanel x:Name="panel_feltet" Margin="445,114,219,113">
+            <CheckBox x:Name="cb_sajt" Content="Sajt" Checked="CheckBox_Checked" Unchecked="CheckBox_Checked"/>
+            <CheckBox x:Name="cb_sonka" Content="Sonka" Checked="CheckBox_Checked" Unchecked="CheckBox_Checked"/>
+            <CheckBox x:Name="cb_gomba" Content="Gomba" Checked="CheckBox_Checked" Unchecked="CheckBox_Checked"/>
+            <CheckBox x:Name="cb_olivabogyo" Content="Olívabogyó" Checked="CheckBox_Checked" Unchecked="CheckBox_Checked"/>
+            <CheckBox x:Name="cb_kukorica" Content="Kukorica" Checked="CheckBox_Checked" Unchecked="CheckBox_Checked"/>
+        </StackPanel>
+        <StackPanel Margin="586,112,78,114">
+            <RadioButton x:Name="rb_szallitas" Content="Házhozszállítás" Checked="RadioButton_Checked" Unchecked="RadioButton_Checked"/>
+            <RadioButton x:Name="rb_atvetel" Content="Személyes átvétel" Checked="RadioButton_Checked" Unchecked="RadioButton_Checked"/>
+        </StackPanel>
+        <Button x:Name="btn_rendeles" Content="Rendelés leadása" HorizontalAlignment="Left" Margin="353,338,0,0" VerticalAlignment="Top" Click="btn_rendeles_Click"/>
+
 
     </Grid>
 </Window>

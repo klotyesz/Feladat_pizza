@@ -18,6 +18,8 @@ namespace Feladat_pizza
     {
         string pizzateszta = "";
         string pizzaMeret = "";
+        bool szallitas = false;
+        List<string> valasztott_feltet = new List<string>();
         public MainWindow()
         {
             InitializeComponent();
@@ -37,6 +39,36 @@ namespace Feladat_pizza
             {
                 pizzaMeret = item.Content.ToString();
             }
+        }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            valasztott_feltet.Clear();
+
+            foreach (var elem in panel_feltet.Children)
+            {
+                if (elem is CheckBox cb && cb.IsChecked == true)
+                {
+                    valasztott_feltet.Add(cb.Content.ToString());
+                }
+            }
+        }
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            if (rb_atvetel.IsChecked == true)
+            {
+                szallitas = false;
+            }
+            else if (rb_szallitas.IsChecked == true)
+            {
+                szallitas = true;
+            }
+        }
+
+        private void btn_rendeles_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show($"Rendelése:\n\nPizzatesztá: {pizzateszta}\nPizza méret: {pizzaMeret}\nFeltétek: {string.Join(", ", valasztott_feltet)}\nÁtvételi mód: {(szallitas ? "Házhozszállítás":"Személyes átvétel")}");
         }
     }
 }
