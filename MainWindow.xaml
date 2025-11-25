@@ -8,9 +8,21 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <StackPanel Margin="0,0,626,217">
-            <ListBox Height="147" ItemsSource="" Width="168"/>
+            <ListBox x:Name="lb_pizzateszta" SelectionMode="Single" Margin="10,0,0,0" FontSize="16" SelectionChanged="lb_pizzateszta_SelectionChanged">
+                <ListBoxItem Content="Vékony"/>
+                <ListBoxItem Content="Normál"/>
+                <ListBoxItem Content="Extra vastag"/>
+            </ListBox>
+        </StackPanel>
+        <StackPanel Margin="179,0,447,217">
+            <ComboBox x:Name="combobox_meret" Width="120" SelectionChanged="combobox_meret_SelectionChanged">
+                <ComboBoxItem Content="Kicsi"/>
+                <ComboBoxItem Content="Közepes"/>
+                <ComboBoxItem Content="Nagy"/>
+            </ComboBox>
 
         </StackPanel>
+        
 
     </Grid>
 </Window>
